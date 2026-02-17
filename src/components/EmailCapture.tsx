@@ -1,14 +1,35 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Bell, CheckCircle } from "lucide-react";
+import { Bell, CheckCircle, Loader2 } from "lucide-react";
+import { supabase } from "@/integrations/supabase/client";
 
 const EmailCapture = () => {
   const [email, setEmail] = useState("");
   const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (email.trim()) {
+    if (!email.trim()) return;
+
+    setLoading(true);
+    setError("");
+
+    const { error: dbError } = await supabase
+      .from("subscribers")
+      .insert({ email: email.trim().toLowerCase() });
+
+    setLoading(false);
+
+    if (dbError) {
+      if (dbError.code === "23505") {
+        setSubmitted(true); // already subscribed, treat as success
+      } else {
+        setError("Something went wrong. Please try again.");
+        console.error("Subscriber insert error:", dbError);
+      }
+    } else {
       setSubmitted(true);
     }
   };
@@ -52,12 +73,14 @@ const EmailCapture = () => {
               />
               <button
                 type="submit"
-                className="h-12 px-7 rounded-lg bg-cta text-cta-foreground font-semibold text-base hover:opacity-90 transition-opacity active:scale-[0.98] shrink-0"
+                disabled={loading}
+                className="h-12 px-7 rounded-lg bg-cta text-cta-foreground font-semibold text-base hover:opacity-90 transition-opacity active:scale-[0.98] shrink-0 disabled:opacity-60"
               >
-                Notify Me
+                {loading ? <Loader2 className="h-5 w-5 animate-spin mx-auto" /> : "Notify Me"}
               </button>
             </form>
           )}
+          {error && <p className="text-cta text-sm mt-2">{error}</p>}
         </motion.div>
       </div>
     </section>
