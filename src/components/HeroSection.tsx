@@ -3,13 +3,20 @@ import { motion } from "framer-motion";
 import { Search, Plane } from "lucide-react";
 import heroBg from "@/assets/hero-bg.jpg";
 
-const HeroSection = () => {
+interface HeroSectionProps {
+  onSearch: (flightNumber: string) => void;
+  loading?: boolean;
+}
+
+const HeroSection = ({ onSearch, loading }: HeroSectionProps) => {
   const [flightNumber, setFlightNumber] = useState("");
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Scroll to flight status section
-    document.getElementById("flight-status")?.scrollIntoView({ behavior: "smooth" });
+    if (flightNumber.trim()) {
+      onSearch(flightNumber.trim());
+      document.getElementById("flight-status")?.scrollIntoView({ behavior: "smooth" });
+    }
   };
 
   return (
@@ -55,9 +62,10 @@ const HeroSection = () => {
             </div>
             <button
               type="submit"
-              className="h-13 px-7 rounded-lg bg-cta text-cta-foreground font-semibold text-base hover:opacity-90 transition-opacity active:scale-[0.98] shrink-0"
+              disabled={loading}
+              className="h-13 px-7 rounded-lg bg-cta text-cta-foreground font-semibold text-base hover:opacity-90 transition-opacity active:scale-[0.98] shrink-0 disabled:opacity-60"
             >
-              Check Status
+              {loading ? "Checking..." : "Check Status"}
             </button>
           </form>
         </motion.div>
