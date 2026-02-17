@@ -1,12 +1,23 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+import HeroSection from "@/components/HeroSection";
+import FlightStatusTracker from "@/components/FlightStatusTracker";
+import RebookingCTA from "@/components/RebookingCTA";
+import AlternativeFlights from "@/components/AlternativeFlights";
+import ContactBar from "@/components/ContactBar";
+import EmailCapture from "@/components/EmailCapture";
+import FAQSection from "@/components/FAQSection";
+import Disclaimer from "@/components/Disclaimer";
 
 const Index = () => {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-background">
-      <div className="text-center">
-        <h1 className="mb-4 text-4xl font-bold">Welcome to Your Blank App</h1>
-        <p className="text-xl text-muted-foreground">Start building your amazing project here!</p>
-      </div>
+    <div className="min-h-screen bg-background">
+      <HeroSection />
+      <FlightStatusTracker />
+      <RebookingCTA />
+      <AlternativeFlights />
+      <ContactBar />
+      <EmailCapture />
+      <FAQSection />
+      <Disclaimer />
     </div>
   );
 };
