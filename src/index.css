@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=DM+Sans:wght@400;500;600;700&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -6,44 +6,47 @@
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 213 30% 14%;
+    --background: 210 20% 99%;
+    --foreground: 215 30% 12%;
 
     --card: 0 0% 100%;
-    --card-foreground: 213 30% 14%;
+    --card-foreground: 215 30% 12%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 213 30% 14%;
+    --popover-foreground: 215 30% 12%;
 
-    --primary: 211 100% 36%;
+    --primary: 217 91% 30%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 210 40% 96%;
-    --secondary-foreground: 213 30% 14%;
+    --secondary: 215 25% 95%;
+    --secondary-foreground: 215 30% 12%;
 
-    --muted: 210 20% 96%;
-    --muted-foreground: 213 12% 48%;
+    --muted: 215 15% 96%;
+    --muted-foreground: 215 10% 46%;
 
-    --accent: 210 40% 96%;
-    --accent-foreground: 213 30% 14%;
+    --accent: 215 25% 95%;
+    --accent-foreground: 215 30% 12%;
 
-    --destructive: 355 78% 56%;
+    --destructive: 0 72% 51%;
     --destructive-foreground: 0 0% 100%;
 
-    --cta: 355 78% 56%;
+    --cta: 217 91% 30%;
     --cta-foreground: 0 0% 100%;
 
-    --success: 152 60% 42%;
+    --success: 160 60% 40%;
     --success-foreground: 0 0% 100%;
 
-    --warning: 40 96% 53%;
-    --warning-foreground: 213 30% 14%;
+    --warning: 38 92% 50%;
+    --warning-foreground: 215 30% 12%;
 
-    --border: 214 20% 90%;
-    --input: 214 20% 90%;
-    --ring: 211 100% 36%;
+    --gold: 42 78% 55%;
+    --gold-foreground: 215 30% 12%;
 
-    --radius: 0.625rem;
+    --border: 215 20% 91%;
+    --input: 215 20% 91%;
+    --ring: 217 91% 30%;
+
+    --radius: 0.5rem;
 
     --sidebar-background: 0 0% 98%;
     --sidebar-foreground: 240 5.3% 26.1%;
@@ -61,14 +64,20 @@
     @apply border-border;
   }
   body {
-    @apply bg-background text-foreground font-sans antialiased;
-    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
   }
 }
 
 @layer utilities {
   .text-gradient-primary {
     @apply bg-clip-text text-transparent;
-    background-image: linear-gradient(135deg, hsl(211 100% 36%), hsl(211 80% 50%));
+    background-image: linear-gradient(135deg, hsl(217 91% 30%), hsl(217 70% 50%));
+  }
+  .glass-card {
+    @apply bg-card/80 backdrop-blur-xl border border-border/50;
   }
 }

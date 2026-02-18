@@ -35,6 +35,10 @@ export default {
           DEFAULT: "hsl(var(--cta))",
           foreground: "hsl(var(--cta-foreground))",
         },
+        gold: {
+          DEFAULT: "hsl(var(--gold))",
+          foreground: "hsl(var(--gold-foreground))",
+        },
         success: {
           DEFAULT: "hsl(var(--success))",
           foreground: "hsl(var(--success-foreground))",
