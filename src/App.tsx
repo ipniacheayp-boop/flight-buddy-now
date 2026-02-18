@@ -10,6 +10,7 @@ import MyTripsPage from "./pages/MyTripsPage";
 import LoyaltyPage from "./pages/LoyaltyPage";
 import TravelInfoPage from "./pages/TravelInfoPage";
 import NotFound from "./pages/NotFound";
+import "./App.css";
 
 const queryClient = new QueryClient();
 
