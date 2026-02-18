@@ -1,19 +1,37 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="SkyVoyage Airlines — Premium air travel to 200+ destinations. Book flights, check status, manage trips, and earn SkyRewards miles." />
-    <meta name="author" content="SkyVoyage Airlines" />
-    <title>SkyVoyage Airlines | Explore the World</title>
-    <meta property="og:type" content="website" />
-    <meta property="og:title" content="SkyVoyage Airlines | Explore the World" />
-    <meta property="og:description" content="SkyVoyage Airlines — Premium air travel to 200+ destinations. Book flights, check status, manage trips, and earn SkyRewards miles." />
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="SkyVoyage Airlines | Explore the World" />
-    <meta name="twitter:description" content="SkyVoyage Airlines — Premium air travel to 200+ destinations." />
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
-  </body>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flight Buddy</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#booking">Book a Flight</a></li>
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <h1>Welcome to Flight Buddy</h1>
+        <section id="booking">
+            <h2>Book Your Flight</h2>
+            <form>
+                <label for="from">From:</label>
+                <input type="text" id="from" name="from">
+                <label for="to">To:</label>
+                <input type="text" id="to" name="to">
+                <label for="date">Date:</label>
+                <input type="date" id="date" name="date">
+                <button type="submit">Search Flights</button>
+            </form>
+        </section>
+    </main>
+    <script src="script.js"></script>
+</body>
 </html>
